@@ -31,3 +31,14 @@
 - 问题真实且切片窄（SnSe κ_L vacancy）  
 - Gap 可操作、可溯源  
 - SPR 假说与 Gap 对齐、可打脸  
+
+## 6. L2 真人抽检（已归档）
+
+正式文件：`experiments/reviews/l2-signed-20260816-production_sciverse_scibase.md`  
+
+| 项 | 值 |
+|----|-----|
+| 跑次 | `production_sciverse_scibase` |
+| 签字人 | Lee |
+| 日期 | 2026-08-16 |
+| 结果 | **4/4 同意**（Gap-1～4） |

@@ -32,7 +32,7 @@
 
 ## 4. 科学意义
 
-见 [`science_significance.md`](science_significance.md)；L2 草案见仓库 `experiments/reviews/l2-draft-20260812-production_sciverse.md`（待真人签字）。
+见 [`science_significance.md`](science_significance.md)；L2 正式归档：`experiments/reviews/l2-signed-20260816-production_sciverse_scibase.md`（Lee · 2026-08-16 · 4/4 同意）。
 
 ## 5. 金标准口径
 

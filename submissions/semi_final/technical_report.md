@@ -34,7 +34,7 @@ Query → Sciverse + Sci-Base 检索 → OA/解析全文（GROBID；Sci-Base con
 |------|------|
 | 方法创新 30% | GA 映射 + LLM-in-the-loop；`ablation_route_a.md` |
 | 可信验证 30% | MP pass；`route_a_mp_oqmd.md` 双库 |
-| 科学意义 20% | `science_significance.md`；L2 待签字 |
+| 科学意义 20% | `science_significance.md`；L2 已签字归档 `l2-signed-20260816-production_sciverse_scibase.md`（4/4） |
 | 工程复现 20% | `REPRODUCE.md`、CI、Dockerfile、稳定度 demo |
 
 ## 5. 合规与开源

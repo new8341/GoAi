@@ -1,35 +1,35 @@
-﻿# 澶嶈禌鎻愪氦娓呭崟 路 绠楁硶璧?路 鏂瑰悜涓?路 闃熶紞銆屽拰鏄嗕粦銆?
+﻿# 复赛提交清单 · 算法赛 · 方向三 · 队伍「和昆仑」
 
-> 渚濇嵁锛歚document/AI_for_reserach0816.md`锛涙埅姝?~2026-09-03锛堜互瀹樼綉涓哄噯锛? 
-> 鍛藉悕锛歚AI4R_ALG_MAT_鍜屾槅浠?zip`  
-> **鍗＄偣涓庝汉宸ユ楠わ細** [`SUPPORT_NEEDED.md`](SUPPORT_NEEDED.md)
+> 依据：`document/AI_for_reserach0816.md`；截止 ~2026-09-03（以官网为准）  
+> 命名：`AI4R_ALG_MAT_和昆仑.zip`  
+> 卡点文档：[`SUPPORT_NEEDED.md`](SUPPORT_NEEDED.md)（三项主卡点已完成）
 
-## 鎵嬪唽蹇呬氦
+## 手册必交
 
-- [x] 鍙繍琛屼唬鐮佷粨搴?+ `REPRODUCE.md`
-- [x] 瀹為獙缁撴灉 + 绉戝鎰忎箟 + 渚濊禆鎶湶
-- [x] 鍩烘湰浠诲姟 PDF+LaTeX + 绯荤粺璇存槑
-- [x] Sci-Base 鎺ュ叆锛堢紦瀛?+ enrich 璺戞 `production_sciverse_scibase`锛?
-- [x] 璺嚎 A 瑙ｉ噴鏂囨。 + 鏋勬晥/澶栭獙浜х墿
-- [x] 寮曠敤鑷煡 `citation_audit.md`锛圤penAlex DOI锛?
-- [x] 鎶€鏈姤鍛婅崏绋?+ 涓€椤电焊棰勭 + LICENSE(Apache-2.0)
-- [x] Dockerfile + MCP 璇存槑鏂囨。
-- [ ] **瀹屾暣 hybrid 閲戞爣閲嶈窇**锛堥渶 Docker锛夆€?瑙?SUPPORT 搂1
-- [ ] **L2 鐪熶汉绛惧瓧 鈮?** 鈥?瑙?SUPPORT 搂2
-- [ ] **鍏紑浠撳簱 URL** 鈥?瑙?SUPPORT 搂3
+- [x] 可运行代码仓库 + `REPRODUCE.md`
+- [x] 实验结果 + 科学意义 + 依赖披露
+- [x] 基本任务 PDF+LaTeX + 系统说明
+- [x] Sci-Base 接入（`production_sciverse_scibase` verify PASS）
+- [x] 路线 A 解释文档 + 构效/外验产物
+- [x] 引用自查 `citation_audit.md`
+- [x] 技术报告草稿 + 一页纸预稿 + LICENSE(Apache-2.0)
+- [x] Dockerfile + MCP 说明文档
+- [x] **完整 hybrid 金标重跑**
+- [x] **L2 真人签字 ≥3** → `l2-signed-20260816-production_sciverse_scibase.md`（4/4 同意）
+- [x] **公开仓库 URL** → https://github.com/new8341/GoAi
 
-## 鍐插垎
+## 冲分
 
-- [x] GA 鍙欎簨 + LLM 娑堣瀺
-- [x] MP + OQMD 鍙屽簱澶栭獙
-- [x] MinerU/GROBID 鎶湶鍙ｅ緞
-- [ ] coverage鈮?.5锛堝彲閫夋墿鏍囷紱褰撳墠鈮?.30 涓嶄綔涓诲浼狅級
-- [ ] Sciverse 瀹樻柟 MCP锛堝彲閫夛紱REST 宸插悎瑙勶級
+- [x] GA 叙事 + LLM 消融
+- [x] MP + OQMD 双库外验
+- [x] MinerU/GROBID 披露口径
+- [x] L2 真人抽检归档
+- [ ] coverage≥0.5（可选扩标；当前≈0.30 不作主宣传）
+- [ ] Sciverse 官方 MCP（可选；REST 已合规）
 
-## 閲嶆柊鎵撳寘
+## 重新打包
 
 ```powershell
 cd submissions\scripts
 powershell -ExecutionPolicy Bypass -File .\build_submission_packages.ps1 -SemiFinal
 ```
-

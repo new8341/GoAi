@@ -6,7 +6,8 @@
 | 文件 | 用途 |
 |------|------|
 | [CHECKLIST.md](CHECKLIST.md) | 必交与冲分勾选 |
-| [SUPPORT_NEEDED.md](SUPPORT_NEEDED.md) | **人工步骤（Docker / L2 / 仓库 URL）** |
+| [SUPPORT_NEEDED.md](SUPPORT_NEEDED.md) | 人工卡点（三项主项已完成） |
+| [l2 note](../../tracks/algorithm/materials_agent/experiments/reviews/l2-signed-20260816-production_sciverse_scibase.md) | **L2 正式签字归档** |
 | [REPRODUCE.md](REPRODUCE.md) | 评委最短复现 |
 | [technical_report.md](technical_report.md) | 完整技术报告草稿 |
 | [one_pager.md](one_pager.md) | 决赛一页纸预稿 |
