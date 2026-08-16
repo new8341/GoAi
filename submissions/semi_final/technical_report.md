@@ -39,6 +39,8 @@ Query → Sciverse + Sci-Base 检索 → OA/解析全文（GROBID；Sci-Base con
 
 ## 5. 合规与开源
 
+公开仓库：https://github.com/new8341/GoAi  
+
 见仓库根 `compliance/`：API/闭源、数据来源、依赖、PRIOR_WORK、开源计划。  
 容器：`docker-compose.yml`（GROBID/Qdrant）+ `Dockerfile`（应用镜像）。
 
