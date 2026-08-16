@@ -2,7 +2,7 @@
 
 > 依据：`document/AI_for_reserach0816.md`；截止 ~2026-09-03（以官网为准）  
 > 命名：`AI4R_ALG_MAT_和昆仑.zip`  
-> 卡点文档：[`SUPPORT_NEEDED.md`](SUPPORT_NEEDED.md)（三项主卡点已完成）
+> 卡点文档：[`SUPPORT_NEEDED.md`](SUPPORT_NEEDED.md)（**人工卡点已全部完成**）
 
 ## 手册必交
 

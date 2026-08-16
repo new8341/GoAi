@@ -1,6 +1,6 @@
 ﻿# 需要你支持的事项
 
-> Docker / hybrid 金标、公开仓库、L2 签字、coverage≥0.5、官方 MCP（含本机 Connected + Live 调用）均已完成。仅剩可选许可证确认。
+> Docker / hybrid 金标、公开仓库、L2 签字、coverage≥0.5、官方 MCP、**许可证 Apache-2.0** 均已确认完成。人工卡点清空。
 
 ---
 
@@ -39,6 +39,6 @@
 - `gold_set_v2_hybrid.json` vs hybrid gaps → **coverage 0.667** / type_accuracy **1.0**
 - 见 `gold_coverage.md`、`gold_score_hybrid.md`
 
-## 6.（可选）许可证
+## 6. 许可证 — 已确认
 
-默认 `LICENSE` = Apache-2.0。
+**保持 Apache-2.0**（2026-08-16 队内确认）。根目录 `LICENSE` 无需改动。

@@ -6,7 +6,7 @@
 | 文件 | 用途 |
 |------|------|
 | [CHECKLIST.md](CHECKLIST.md) | 必交与冲分勾选 |
-| [SUPPORT_NEEDED.md](SUPPORT_NEEDED.md) | 人工卡点（主项已完成；可选许可证） |
+| [SUPPORT_NEEDED.md](SUPPORT_NEEDED.md) | 人工卡点（**已全部完成**） |
 | [gold_coverage.md](gold_coverage.md) | 金标准 coverage 口径（v2 **0.667**） |
 | [sciverse_mcp_probe.md](sciverse_mcp_probe.md) | 官方 MCP 接入证明 |
 | [l2 note](../../tracks/algorithm/materials_agent/experiments/reviews/l2-signed-20260816-production_sciverse_scibase.md) | **L2 正式签字归档** |
