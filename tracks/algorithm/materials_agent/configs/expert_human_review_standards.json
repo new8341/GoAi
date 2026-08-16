@@ -1,0 +1,394 @@
+{
+  "version": "1.0",
+  "title": "专家级真人核对标准全集",
+  "purpose": "对齐竞赛「科学意义」维度：由领域专家对 production 产物做可归档核对。AI 门禁（science_review）不替代本清单。",
+  "verdict_options": ["pass", "fail", "unsure", "na"],
+  "categories": [
+    {
+      "id": "R",
+      "name": "运行层可信度",
+      "audience": ["user", "debug"],
+      "desc": "整次调研是否具备可辩护的工程与科学前提"
+    },
+    {
+      "id": "P",
+      "name": "文献语料",
+      "audience": ["user", "debug"],
+      "desc": "召回文献是否贴题、可外部核对"
+    },
+    {
+      "id": "G",
+      "name": "Gap 科学质量",
+      "audience": ["user", "debug"],
+      "desc": "缺口主张是否像真科学问题"
+    },
+    {
+      "id": "E",
+      "name": "证据真实性",
+      "audience": ["user", "debug"],
+      "desc": "quote 是否原文、provenance 是否可回源"
+    },
+    {
+      "id": "T",
+      "name": "类型名实相符",
+      "audience": ["user", "debug"],
+      "desc": "contradiction / missing_link 等是否名副其实"
+    },
+    {
+      "id": "A",
+      "name": "可行动与可证伪",
+      "audience": ["user", "debug"],
+      "desc": "下一步与证伪是否可设计实验/计算"
+    },
+    {
+      "id": "N",
+      "name": "新颖性诚实与过宣称",
+      "audience": ["user", "debug"],
+      "desc": "是否把常识/已知当发现"
+    },
+    {
+      "id": "X",
+      "name": "交叉一致",
+      "audience": ["debug", "user"],
+      "desc": "报告、面板、JSON、audit 是否一致"
+    },
+    {
+      "id": "D",
+      "name": "领域物理 sanity",
+      "audience": ["user", "debug"],
+      "desc": "材料/热电专家主观判断（无自动 ground truth）"
+    }
+  ],
+  "standards": [
+    {
+      "id": "R1",
+      "category": "R",
+      "level": "must",
+      "title": "生产验收 PASS",
+      "question": "production_verification.status 是否为 PASS？",
+      "pass_criteria": "status=PASS；关键 checks 全为 pass",
+      "fail_signals": "FAIL；或仅有 demo checklist 冒充生产",
+      "applies_to": "run"
+    },
+    {
+      "id": "R2",
+      "category": "R",
+      "level": "must",
+      "title": "一致性检查",
+      "question": "consistency.ok 是否为 true？",
+      "pass_criteria": "ok=true 或 issues 为空",
+      "fail_signals": "paper_id 悬空、证据跨文错挂",
+      "applies_to": "run"
+    },
+    {
+      "id": "R3",
+      "category": "R",
+      "level": "should",
+      "title": "AI 科学门禁",
+      "question": "science_review.status 是否 PASS（若已跑）？",
+      "pass_criteria": "science_review=PASS；或明确标注未跑",
+      "fail_signals": "L0 hard fail / L1 reject>0 仍宣称科学通过",
+      "applies_to": "run"
+    },
+    {
+      "id": "R4",
+      "category": "R",
+      "level": "should",
+      "title": "贴题监控",
+      "question": "optimization_metrics 贴题/对齐是否达标？",
+      "pass_criteria": "topic_hit_rate≥0.7 且 gap_material_alignment≥0.8",
+      "fail_signals": "大量 Bi2Te3/GeTe 等非主题材料冲榜",
+      "applies_to": "run"
+    },
+    {
+      "id": "R5",
+      "category": "R",
+      "level": "must",
+      "title": "全文证据比例",
+      "question": "含全文文献是否达到可辩护比例？",
+      "pass_criteria": "fulltext_papers/papers ≥ 配置阈值（常见≥50%）",
+      "fail_signals": "几乎全是摘要冒充全文证据",
+      "applies_to": "run"
+    },
+    {
+      "id": "P1",
+      "category": "P",
+      "level": "must",
+      "title": "标题贴题",
+      "question": "该文献标题/摘要是否明确涉及主题材料（如 SnSe）？",
+      "pass_criteria": "标题或摘要出现主题材料名",
+      "fail_signals": "仅广义 thermoelectric，主材料是 Bi2Te3/GeTe/SnS 等",
+      "applies_to": "paper"
+    },
+    {
+      "id": "P2",
+      "category": "P",
+      "level": "should",
+      "title": "性质相关",
+      "question": "是否涉及 vacancy / lattice thermal conductivity / phonon 等主题性质？",
+      "pass_criteria": "至少命中一个主题性质词或其同义表述",
+      "fail_signals": "只谈合成产率、器件封装等无关主线",
+      "applies_to": "paper"
+    },
+    {
+      "id": "P3",
+      "category": "P",
+      "level": "must",
+      "title": "可外部核对",
+      "question": "是否有 DOI 或稳定 URL 可人工打开核对？",
+      "pass_criteria": "有 DOI 或 oa/pdf URL",
+      "fail_signals": "只有内部 id，无法外链",
+      "applies_to": "paper"
+    },
+    {
+      "id": "P4",
+      "category": "P",
+      "level": "should",
+      "title": "解析来源可信",
+      "question": "fulltext_source 是否为 mineru / grobid / grobid_fusion（非 local_cache）？",
+      "pass_criteria": "parser-derived fulltext 或明确无全文",
+      "fail_signals": "local_cache 被当作生产证据",
+      "applies_to": "paper"
+    },
+    {
+      "id": "G1",
+      "category": "G",
+      "level": "must",
+      "title": "真缺口而非常识复述",
+      "question": "Gap 标题/描述是否提出可争论的未决问题，而非教科书常识？",
+      "pass_criteria": "存在不确定性、冲突、覆盖缺口或方法缺口",
+      "fail_signals": "「SnSe 是热电材料」类陈述",
+      "applies_to": "gap"
+    },
+    {
+      "id": "G2",
+      "category": "G",
+      "level": "must",
+      "title": "主张与主题对齐",
+      "question": "该 Gap 是否服务于当前 topic（材料+性质）？",
+      "pass_criteria": "标题/描述点名主题材料，或明确为语料级 limitations/missing-link",
+      "fail_signals": "temporal-PbTe 等偏离主材料",
+      "applies_to": "gap"
+    },
+    {
+      "id": "G3",
+      "category": "G",
+      "level": "should",
+      "title": "粒度足够细",
+      "question": "是否具体到机制/条件/度量，而非空泛「需要更多研究」？",
+      "pass_criteria": "含可操作对象（缺陷类型、温度区间、对比协议等）",
+      "fail_signals": "只有模板句、无物理量/机制",
+      "applies_to": "gap"
+    },
+    {
+      "id": "G4",
+      "category": "G",
+      "level": "should",
+      "title": "与 Known 区关系诚实",
+      "question": "若 overlaps_known，是否仍合理保留为「语料内缺口」而非全球新发现？",
+      "pass_criteria": "表述限定在 screened corpus / candidate missing_link",
+      "fail_signals": "宣称首次发现已知密集区",
+      "applies_to": "gap"
+    },
+    {
+      "id": "E1",
+      "category": "E",
+      "level": "must",
+      "title": "quote 像论文原句",
+      "question": "摘录是否像论文措辞（而非模型改写口号）？",
+      "pass_criteria": "句法/术语像学术正文",
+      "fail_signals": "宣传腔、明显 LLM paraphrase",
+      "applies_to": "evidence"
+    },
+    {
+      "id": "E2",
+      "category": "E",
+      "level": "must",
+      "title": "quote⊂原文",
+      "question": "在对应 chunk/全文中能否搜到连续原句（允许空白差异）？",
+      "pass_criteria": "关键词串可定位；机器 hint 为 hit 时仍需肉眼确认截断是否误导",
+      "fail_signals": "搜不到；或只有参考文献/许可协议噪声",
+      "applies_to": "evidence"
+    },
+    {
+      "id": "E3",
+      "category": "E",
+      "level": "must",
+      "title": "provenance 齐全",
+      "question": "是否具备 paper_id + chunk_id + pdf_hash（或等价定位）？",
+      "pass_criteria": "三者齐全且 paper_id 在文献列表中",
+      "fail_signals": "缺 provenance；paper_id 不存在",
+      "applies_to": "evidence"
+    },
+    {
+      "id": "E4",
+      "category": "E",
+      "level": "must",
+      "title": "非 boilerplate",
+      "question": "摘录是否避开 CC 许可、Peer review、Data availability、纯参考文献块？",
+      "pass_criteria": "正文/结果/讨论类内容",
+      "fail_signals": "Creative Commons / Reprints / References 堆砌",
+      "applies_to": "evidence"
+    },
+    {
+      "id": "E5",
+      "category": "E",
+      "level": "should",
+      "title": "主张–摘录相关",
+      "question": "该 quote 是否实质支持 Gap 主张（而非无关公式/题头）？",
+      "pass_criteria": "摘录语义指向 gap 标题所涉问题",
+      "fail_signals": "κ 公式、作者单位、与主张无关段落",
+      "applies_to": "evidence"
+    },
+    {
+      "id": "T1",
+      "category": "T",
+      "level": "must",
+      "title": "contradiction 双边",
+      "question": "若类型为 contradiction：是否有不相交的 supporting 与 contradicting 文献集？",
+      "pass_criteria": "两边非空且 paper_id 集合不相交",
+      "fail_signals": "单边凑 contradiction；两边同一篇",
+      "applies_to": "gap"
+    },
+    {
+      "id": "T2",
+      "category": "T",
+      "level": "should",
+      "title": "contradiction 真有冲突",
+      "question": "两边文献在归一化条件后是否真的主张冲突（而非时代叙述差）？",
+      "pass_criteria": "可写出冲突点（度量/机制/结论）对照表",
+      "fail_signals": "仅「都讨论了 SnSe」",
+      "applies_to": "gap"
+    },
+    {
+      "id": "T3",
+      "category": "T",
+      "level": "should",
+      "title": "missing_link 限定语料",
+      "question": "missing_link 是否明确是「本语料内未覆盖」而非「全世界没有」？",
+      "pass_criteria": "描述含 corpus / screened / within this corpus 等限定",
+      "fail_signals": "绝对化「文献从未研究」",
+      "applies_to": "gap"
+    },
+    {
+      "id": "T4",
+      "category": "T",
+      "level": "should",
+      "title": "underexplored 有开放问题",
+      "question": "underexplored 是否指向 limitation/uncertainty，而非已完成结论？",
+      "pass_criteria": "证据含 however/remain/challenge 等开放信号，或明确未决机制",
+      "fail_signals": "摘录全是成功结论句",
+      "applies_to": "gap"
+    },
+    {
+      "id": "A1",
+      "category": "A",
+      "level": "must",
+      "title": "下一步可执行",
+      "question": "suggested_next_step 是否能在一周内设计成具体实验/计算/数据库检查？",
+      "pass_criteria": "含对象、手段、判据之一",
+      "fail_signals": "need more research / further study",
+      "applies_to": "gap"
+    },
+    {
+      "id": "A2",
+      "category": "A",
+      "level": "must",
+      "title": "证伪可设计",
+      "question": "falsification_test 是否给出「何种结果则关闭/拒绝该 Gap」？",
+      "pass_criteria": "条件→拒绝/关闭 的清晰逻辑",
+      "fail_signals": "空泛「如果错了就算了」",
+      "applies_to": "gap"
+    },
+    {
+      "id": "A3",
+      "category": "A",
+      "level": "should",
+      "title": "与 Route A/外验可衔接",
+      "question": "若启用 Route A：下一步是否能落到 MP/OQMD/可计算量？",
+      "pass_criteria": "可映射到结构/稳定性/物性查询或计算",
+      "fail_signals": "完全无法外验的纯修辞缺口",
+      "applies_to": "gap"
+    },
+    {
+      "id": "N1",
+      "category": "N",
+      "level": "must",
+      "title": "无过宣称",
+      "question": "是否避免「首次发现/证实发现/paradigm shift」等过强措辞？",
+      "pass_criteria": "措辞克制，标明候选/语料内",
+      "fail_signals": "discover / 首次证明 / paradigm",
+      "applies_to": "gap"
+    },
+    {
+      "id": "N2",
+      "category": "N",
+      "level": "should",
+      "title": "novelty 与 known 一致",
+      "question": "novelty 分数是否与 overlaps_known / 领域常识一致？",
+      "pass_criteria": "known 重叠时 novelty 不应虚高（>0.7 需警惕）",
+      "fail_signals": "明显已知仍标高 novelty",
+      "applies_to": "gap"
+    },
+    {
+      "id": "X1",
+      "category": "X",
+      "level": "must",
+      "title": "面板与 JSON 一致",
+      "question": "用户端展示的 Gap 数/标题是否与 gaps.json 一致？",
+      "pass_criteria": "条数与 id 对齐",
+      "fail_signals": "缓存 user_result 陈旧导致不一致",
+      "applies_to": "run"
+    },
+    {
+      "id": "X2",
+      "category": "X",
+      "level": "should",
+      "title": "报告不矛盾",
+      "question": "report.md 中 Gap 列表是否与 gaps.json 主张一致？",
+      "pass_criteria": "无另一套互相矛盾的叙事",
+      "fail_signals": "报告写 PASS 叙事但 JSON 证据为空",
+      "applies_to": "run"
+    },
+    {
+      "id": "X3",
+      "category": "X",
+      "level": "should",
+      "title": "检索后端如实",
+      "question": "若宣称 Sciverse：audit 是否无意外 OpenAlex fallback？",
+      "pass_criteria": "source/audit 与宣传一致",
+      "fail_signals": "宣传 Sciverse 实为 fallback",
+      "applies_to": "run"
+    },
+    {
+      "id": "D1",
+      "category": "D",
+      "level": "expert",
+      "title": "物理机制合理性",
+      "question": "以热电/缺陷物理常识看，该 Gap 是否值得跟进？",
+      "pass_criteria": "专家主观：值得 / 低优先 / 不值得（记录理由）",
+      "fail_signals": "机制明显违背已知约束且无新证据",
+      "applies_to": "gap"
+    },
+    {
+      "id": "D2",
+      "category": "D",
+      "level": "expert",
+      "title": "实验可行性",
+      "question": "suggested_next_step 在真实实验室/计算资源下是否可行？",
+      "pass_criteria": "专家评估周期、设备、样品可行性",
+      "fail_signals": "需不可得极端条件却当作常规下一步",
+      "applies_to": "gap"
+    },
+    {
+      "id": "D3",
+      "category": "D",
+      "level": "expert",
+      "title": "文献代表性质疑",
+      "question": "当前 10 篇语料是否足以支撑该 Gap，还是抽样偏差？",
+      "pass_criteria": "专家注明：语料足够 / 需补检关键综述或关键实验文",
+      "fail_signals": "关键里程碑文献缺失仍强推 contradiction",
+      "applies_to": "gap"
+    }
+  ]
+}

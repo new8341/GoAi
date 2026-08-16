@@ -1,0 +1,66 @@
+{
+  "default_id": "snse-vacancy-kl",
+  "description": "GOAI 材料文献 Agent · 与当前竞赛选题（SnSe / 空位 / 晶格热导 / 热电）相关的备选检索主题。可下拉填充，也可在文本框自行修改。",
+  "topics": [
+    {
+      "id": "snse-vacancy-kl",
+      "label_zh": "① SnSe 空位 · 晶格热导（默认竞赛题）",
+      "topic": "SnSe lattice thermal conductivity vacancy engineering",
+      "note": "当前主赛题切口"
+    },
+    {
+      "id": "snse-cation-phonon",
+      "label_zh": "② SnSe 阳离子空位 · 声子散射",
+      "topic": "SnSe cation vacancy phonon scattering thermoelectric",
+      "note": "空位→声子散射机理"
+    },
+    {
+      "id": "snse-poly-defect",
+      "label_zh": "③ 多晶 SnSe · 缺陷工程",
+      "topic": "Polycrystalline SnSe defect engineering ultralow lattice thermal conductivity",
+      "note": "多晶样品与缺陷工程"
+    },
+    {
+      "id": "snse-cd-vacancy",
+      "label_zh": "④ Cd 掺杂 SnSe · 空位+局域晶格",
+      "topic": "Cd-doped SnSe cation vacancies localized lattice engineering thermoelectric",
+      "note": "与高相关文献 W2914712880 对齐"
+    },
+    {
+      "id": "sns-snse-compare",
+      "label_zh": "⑤ SnS / SnSe 空位热输运对照",
+      "topic": "SnS SnSe chalcogenide vacancy engineering thermal transport comparison",
+      "note": "同族硫属对照"
+    },
+    {
+      "id": "snse-anisotropy-gb",
+      "label_zh": "⑥ SnSe 各向异性 · 晶界散射",
+      "topic": "Anisotropic SnSe lattice thermal conductivity grain boundary scattering",
+      "note": "各向异性与晶界"
+    },
+    {
+      "id": "ivvi-vacancy-kl",
+      "label_zh": "⑦ IV–VI 热电 · 空位压低 κ_L",
+      "topic": "IV-VI thermoelectrics vacancy engineering ultralow lattice thermal conductivity",
+      "note": "扩到同族材料族"
+    },
+    {
+      "id": "gete-defect-analogy",
+      "label_zh": "⑧ GeTe 缺陷结构（SnSe 类比）",
+      "topic": "GeTe defect structures lattice thermal conductivity vacancy analogy SnSe",
+      "note": "缺陷叙事类比，非主材料"
+    },
+    {
+      "id": "pbte-vacancy-resonant",
+      "label_zh": "⑨ PbTe 空位 / 共振掺杂热电",
+      "topic": "PbTe vacancy resonant doping thermoelectric figure of merit",
+      "note": "经典热电空位对照"
+    },
+    {
+      "id": "ml-kl-snse",
+      "label_zh": "⑩ 机器学习预测 SnSe 族 κ_L",
+      "topic": "Machine learning lattice thermal conductivity prediction SnSe chalcogenides",
+      "note": "方法向：ML + 热导"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Materials Agent · Survey Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/debug/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand-block">
+        <p class="brand">Materials Agent · Debug</p>
+        <p class="brand-sub">工程师视图 · 检查 verify / 解析源 / 证据 provenance</p>
+      </div>
+      <div style="display:flex;gap:0.75rem;align-items:flex-end;flex-wrap:wrap">
+        <a class="btn ghost" id="headerUserLink" href="/" style="text-decoration:none" title="用户黑盒界面（同源不同步）">用户界面</a>
+        <label class="run-picker">
+          <span>运行产物</span>
+          <select id="runSelect" aria-label="选择 outputs 运行目录"></select>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="verifyBadge">加载中…</p>
+          <h1 id="topicTitle">Materials Literature Survey</h1>
+          <p class="lede" id="heroLede">
+            将 OpenAlex / OA PDF / GROBID（可选 MinerU）证据链与 Research Gap 结果可视化。
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#gaps">查看 Gaps</a>
+            <a class="btn ghost" href="#papers">浏览文献</a>
+            <a class="btn ghost" id="openUserSameRun" href="/" style="text-decoration:none">用户端打开本 run</a>
+          </div>
+        </div>
+        <div class="hero-metrics" id="metricStrip" aria-label="关键指标"></div>
+      </section>
+      <div class="align-bar" id="alignBar" aria-label="与用户端对齐的门禁与指标"></div>
+
+      <aside class="guide-panel" aria-label="调试端使用方法与判断标准">
+        <details open>
+          <summary>使用方法（调试端）</summary>
+          <ol>
+            <li>顶部选择运行目录（推荐 <code>production_sciverse</code>），确认 badge 为 <strong>verify PASS</strong>。</li>
+            <li>总览：看验收检查项、全文解析覆盖、检索 Query。</li>
+            <li>文献：过滤 <code>source</code> / <code>fulltext_source</code>（Sciverse 应为 <code>sciverse</code>；解析可为 <code>mineru</code> 或 <code>grobid_fusion</code>）。</li>
+            <li>Gaps：点左侧条目，核对 quote、provenance、下一步与证伪；与用户端对照同一 run。</li>
+            <li>需要黑盒叙事时点「用户界面」，用「打开已有运行」加载同一目录。</li>
+          </ol>
+        </details>
+        <details open>
+          <summary>判断标准（白盒）</summary>
+          <div class="criteria-grid">
+            <div>
+              <h3>总览 / Verify</h3>
+              <ul>
+                <li><code>production_verification</code> = PASS</li>
+                <li>全文解析比例 ≥ 配置阈值（常见 ≥50%）</li>
+                <li>无 <code>local_cache</code> 冒充生产证据</li>
+                <li>Gap 全文证据 spans &gt; 0 且 quote 可回源</li>
+              </ul>
+            </div>
+            <div>
+              <h3>文献</h3>
+              <ul>
+                <li>Sciverse 轮次：多数 <code>source=sciverse</code></li>
+                <li>audit 无 <code>fallback openalex</code>（除非预期降级）</li>
+                <li>有 pdf_hash / 解析产物更可信</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Gaps 与反向抽查</h3>
+              <ul>
+                <li>quote + paper_id + provenance 齐全</li>
+                <li>类型与描述一致（尤其 contradiction）</li>
+                <li>抽 2 条 quote 在全文中搜到原句才算通过</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </aside>
+
+      <nav class="tabs" aria-label="视图切换">
+        <button class="tab active" data-tab="overview">总览</button>
+        <button class="tab" data-tab="expert">专家核对</button>
+        <button class="tab" data-tab="papers">文献</button>
+        <button class="tab" data-tab="gaps">Gaps</button>
+        <button class="tab" data-tab="routea">Route A</button>
+        <button class="tab" data-tab="report">报告</button>
+      </nav>
+
+      <section class="panel active" id="panel-overview">
+        <div class="split">
+          <article class="surface">
+            <h2>验收与一致性</h2>
+            <p class="muted criteria-note">通过标准：全部检查项为 pass；consistency PASS；解析来源为 mineru / grobid_fusion。</p>
+            <div id="verifyList" class="check-list"></div>
+            <p class="muted" id="consistencyNote"></p>
+          </article>
+          <article class="surface">
+            <h2>全文解析覆盖</h2>
+            <p class="muted criteria-note">通过标准：可解析占比达标；生产禁用 local_cache 作为证据。</p>
+            <div id="fulltextChart" class="source-bars"></div>
+            <ul id="fulltextLegend" class="legend"></ul>
+          </article>
+        </div>
+        <article class="surface">
+          <h2>优化监控点</h2>
+          <p class="muted criteria-note">
+            目标：贴题≥70%、Gap对齐≥80%、噪声≤5%、溯源≥95%。未达标即下一轮优化方向。
+          </p>
+          <div id="metricsList" class="check-list"></div>
+          <pre id="retrieveAudit" class="report-body" style="max-height:12rem;margin-top:0.75rem"></pre>
+        </article>
+        <article class="surface">
+          <h2>检索 Query</h2>
+          <ol id="queryList" class="query-list"></ol>
+        </article>
+      </section>
+
+      <section class="panel" id="panel-expert">
+        <article class="surface">
+          <h2>专家级真人核对（调试端）</h2>
+          <p class="muted" id="expertMeta">加载运行后生成全部核对对象，并标注标准 ID。</p>
+          <div id="expertRoot"></div>
+        </article>
+      </section>
+
+      <section class="panel" id="panel-papers">
+        <div class="toolbar">
+          <input id="paperFilter" type="search" placeholder="按标题 / ID / DOI 过滤…" />
+          <select id="sourceFilter">
+            <option value="all">全部全文来源</option>
+            <option value="mineru">mineru</option>
+            <option value="grobid_fusion">grobid_fusion</option>
+            <option value="none">none</option>
+          </select>
+        </div>
+        <p class="inline-hint">判断：标题贴题；Sciverse 轮看 <code>source=sciverse</code>；全文来源优先 mineru / grobid_fusion。</p>
+        <div id="paperList" class="stack"></div>
+      </section>
+
+      <section class="panel" id="panel-gaps">
+        <p class="inline-hint">判断：quote 像原文 → paper_id 可定位 → 下一步可执行 → 证伪可设计；抽查时用关键词回全文搜索。</p>
+        <div class="gap-layout">
+          <aside id="gapNav" class="gap-nav"></aside>
+          <article id="gapDetail" class="surface gap-detail">
+            <p class="muted">选择左侧 Gap 查看证据链与下一步实验建议。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-routea">
+        <article class="surface" id="routeASummary"></article>
+        <div id="routeAList" class="stack"></div>
+      </section>
+
+      <section class="panel" id="panel-report">
+        <article class="surface report-wrap">
+          <pre id="reportBody" class="report-body">暂无 report.md</pre>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>本地只读查看器 · 不上传密钥与 PDF · 标准见上方「使用方法 / 判断标准」</span>
+      <span id="loadStatus"></span>
+    </footer>
+    <script src="/debug/app.js" type="module"></script>
+  </body>
+</html>

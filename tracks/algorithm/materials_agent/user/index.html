@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Materials Agent · 文献调研</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <header class="top">
+      <div>
+        <p class="brand">Materials Agent</p>
+        <p class="tag">材料科学文献调研 · 用户界面</p>
+      </div>
+      <a class="debug-link" id="headerDebugLink" href="/debug/?run=production" title="工程师调试视图（同源不同步）">调试视图</a>
+    </header>
+
+    <main>
+      <section class="compose" id="compose">
+        <h1>输入研究主题，获取可验证的研究空白</h1>
+        <p class="sub">
+          黑盒测试入口：只需给出主题与模式，系统返回文献、Research Gaps、下一步建议与报告。
+        </p>
+
+        <aside class="guide" aria-label="使用方法与判断标准">
+          <details open>
+            <summary>使用方法</summary>
+            <ol class="guide-steps">
+              <li><strong>新跑一轮</strong>：填写主题 → 选模式（推荐 Sciverse / 生产）→ 开始调研。</li>
+              <li><strong>核验已有结果</strong>：下方选 <code>production_sciverse</code> → 打开（无需重跑）。</li>
+              <li><strong>对照白盒</strong>：右上角「调试视图」看 verify / 解析源 / 证据 provenance。</li>
+              <li><strong>正式抽检</strong>：按判断标准审 Gaps，结论写入 <code>experiments/reviews/</code>。</li>
+            </ol>
+          </details>
+          <details open>
+            <summary>判断标准（用户端）</summary>
+            <div class="criteria-grid">
+              <div>
+                <h3>摘要条</h3>
+                <ul>
+                  <li>文献数尽量 ≥ 5</li>
+                  <li>研究空白 ≥ 1</li>
+                  <li>含全文尽量 ≥ 半数</li>
+                  <li>一致性显示「通过」更佳</li>
+                </ul>
+              </div>
+              <div>
+                <h3>每条 Gap（核心）</h3>
+                <ul>
+                  <li>标题像真缺口，非常识复述</li>
+                  <li>证据 quote 像论文原句，paper_id 可对上</li>
+                  <li>「下一步」可执行；「证伪」可设计实验/计算</li>
+                  <li>红旗：空证据、口号式 paraphrase、无法证伪</li>
+                </ul>
+              </div>
+              <div>
+                <h3>文献与报告</h3>
+                <ul>
+                  <li>标题贴题，多数有 DOI</li>
+                  <li>「全文可用」与摘要条大致一致</li>
+                  <li>报告中的 Gap 与面板不矛盾</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+          <details open>
+            <summary>相关文档（打开 / 下载）</summary>
+            <div class="doc-links" id="composeDocs">
+              <p class="muted">加载文档目录中…</p>
+            </div>
+          </details>
+        </aside>
+
+        <form id="surveyForm" class="form">
+          <label>
+            <span>备选主题（可点选填充）</span>
+            <select id="topicPreset">
+              <option value="">自定义输入…</option>
+            </select>
+          </label>
+          <p class="hint" id="topicPresetHint">从竞赛相关备选中选择，或在下方自行填写 / 修改。</p>
+          <label>
+            <span>研究主题</span>
+            <textarea
+              id="topic"
+              rows="3"
+              maxlength="300"
+              required
+              placeholder="例如：SnSe lattice thermal conductivity vacancy engineering"
+            ></textarea>
+          </label>
+          <div class="row">
+            <label>
+              <span>运行模式</span>
+              <select id="profile"></select>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="routeA" />
+              <span>同时生成 Route A 假说（可选）</span>
+            </label>
+          </div>
+          <p class="hint" id="profileHint"></p>
+          <button type="submit" class="go" id="submitBtn">开始调研</button>
+        </form>
+        <div class="browse">
+          <label>
+            <span>打开已有运行（人工核验）</span>
+            <select id="existingRun">
+              <option value="">选择 outputs 目录…</option>
+            </select>
+          </label>
+          <button type="button" class="ghost-btn" id="openRunBtn">打开</button>
+        </div>
+        <div class="progress hidden" id="progress">
+          <div class="spinner" aria-hidden="true"></div>
+          <div>
+            <strong id="progressTitle">任务进行中</strong>
+            <p id="progressMsg">请稍候…</p>
+          </div>
+        </div>
+        <p class="error hidden" id="formError"></p>
+      </section>
+
+      <section class="results hidden" id="results">
+        <div class="align-bar" id="alignBar" aria-label="与调试端对齐的门禁与指标"></div>
+        <div class="summary" id="summary"></div>
+        <aside class="review-banner" aria-label="核验提示">
+          <strong>核验提示</strong>
+          <span>先看摘要条是否达标 → 逐条审 Gap 证据与下一步/证伪 → 抽 1–2 条 quote 回原文核对 → 需要更细 provenance 时切到调试视图（同一 run，不同步页签）。</span>
+        </aside>
+        <div class="link-bar" id="resultLinks"></div>
+        <nav class="tabs">
+          <button type="button" class="tab active" data-panel="gaps">研究空白</button>
+          <button type="button" class="tab" data-panel="expert">专家核对</button>
+          <button type="button" class="tab" data-panel="papers">相关文献</button>
+          <button type="button" class="tab" data-panel="routea">Route A</button>
+          <button type="button" class="tab" data-panel="report">报告</button>
+          <button type="button" class="tab" data-panel="files">生成文档</button>
+          <button type="button" class="tab" data-panel="guide">判断标准</button>
+        </nav>
+        <div class="panel active" id="panel-gaps"></div>
+        <div class="panel" id="panel-expert">
+          <p class="muted">打开已有运行后，将在此加载专家核对对象与标准标注。</p>
+        </div>
+        <div class="panel" id="panel-papers"></div>
+        <div class="panel" id="panel-routea"></div>
+        <div class="panel" id="panel-report">
+          <div class="report-actions" id="reportActions"></div>
+          <pre id="reportText"></pre>
+        </div>
+        <div class="panel" id="panel-files"></div>
+        <div class="panel" id="panel-guide">
+          <article class="card">
+            <h3>摘要条通过标准</h3>
+            <p>文献尽量 ≥5；Gaps ≥1；含全文尽量 ≥半数；一致性「通过」更佳。</p>
+            <p class="muted">意义：确认检索与证据链不是空跑。</p>
+          </article>
+          <article class="card">
+            <h3>Gap 通过标准</h3>
+            <ul>
+              <li>描述像可研究缺口，而非教材常识。</li>
+              <li>证据 quote 可读作原文；paper_id 在文献列表中存在。</li>
+              <li>「下一步」具体可做；「如何证伪」可设计实验/计算。</li>
+            </ul>
+            <p class="muted">意义：竞赛要求可回源、可行动、可检验。</p>
+          </article>
+          <article class="card">
+            <h3>反向抽查（建议 ≥2 条）</h3>
+            <p>从证据摘录取 5–8 个连续词 → 在调试视图对应全文中搜索 → 搜到记接受，搜不到记拒收并写入 <code>experiments/reviews/</code>。</p>
+          </article>
+        </div>
+        <button type="button" class="again" id="againBtn">再跑一个主题</button>
+      </section>
+    </main>
+
+    <footer>
+      <span>本地运行 · 不上传您的密钥</span>
+      <span>判断标准见页内「使用方法」；工程师用调试视图核对 verify / provenance</span>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

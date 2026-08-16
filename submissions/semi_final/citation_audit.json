@@ -1,0 +1,56 @@
+{
+  "bib": "outputs\\production_sciverse_scibase\\references.bib",
+  "ok": 6,
+  "fail": 0,
+  "no_doi": 0,
+  "rows": [
+    {
+      "key": "SVpaper101021acsjpcc2c02401",
+      "doi": "10.1021/acs.jpcc.2c02401",
+      "title": "Layered Tin Chalcogenides SnS and SnSe: Lattice Thermal Conductivity Benchmarks and Thermoelectric Figure of Merit",
+      "verdict": "verified",
+      "openalex_title": "Layered Tin Chalcogenides SnS and SnSe: Lattice Thermal Conductivity Benchmarks and Thermoelectric Figure of Merit",
+      "year": 2022
+    },
+    {
+      "key": "SVpaper101002aenm201803242",
+      "doi": "10.1002/aenm.201803242",
+      "title": "High Thermoelectric Performance in p‐type Polycrystalline Cd‐doped SnSe Achieved by a Combination of Cation Vacancies and Localized Lattice Engineering",
+      "verdict": "verified",
+      "openalex_title": "High Thermoelectric Performance in p‐type Polycrystalline Cd‐doped SnSe Achieved by a Combination of Cation Vacancies and Localized Lattice Engineering",
+      "year": 2019
+    },
+    {
+      "key": "SVpaper101021acsami1c18194",
+      "doi": "10.1021/acsami.1c18194",
+      "title": "Defect Engineering Boosted Ultrahigh Thermoelectric Power Conversion Efficiency in Polycrystalline SnSe",
+      "verdict": "verified",
+      "openalex_title": "Defect Engineering Boosted Ultrahigh Thermoelectric Power Conversion Efficiency in Polycrystalline SnSe",
+      "year": 2021
+    },
+    {
+      "key": "SVpaper1010882632959xabd291",
+      "doi": "10.1088/2632-959x/abd291",
+      "title": "Effect of nanoinclusions on the lattice thermal conductivity of SnSe",
+      "verdict": "verified",
+      "openalex_title": "Effect of nanoinclusions on the lattice thermal conductivity of SnSe",
+      "year": 2020
+    },
+    {
+      "key": "SVpaper101002advs202105958",
+      "doi": "10.1002/advs.202105958",
+      "title": "Degenerated Hole Doping and Ultra‐Low Lattice Thermal Conductivity in Polycrystalline SnSe by Nonequilibrium Isovalent Te Substitution",
+      "verdict": "verified",
+      "openalex_title": "Degenerated Hole Doping and Ultra‐Low Lattice Thermal Conductivity in Polycrystalline SnSe by Nonequilibrium Isovalent Te Substitution",
+      "year": 2022
+    },
+    {
+      "key": "f431be85956e671b1ed3",
+      "doi": "10.1038/s41467-020-18122-3",
+      "title": "Si0.97Ge0.03 microelectronic thermoelectric generators with high power and voltage densities",
+      "verdict": "verified",
+      "openalex_title": "Si0.97Ge0.03 microelectronic thermoelectric generators with high power and voltage densities",
+      "year": 2020
+    }
+  ]
+}

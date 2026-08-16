@@ -1,0 +1,84 @@
+topic: "SnSe lattice thermal conductivity vacancy engineering"
+subfield: "thermoelectrics"
+max_papers: 5
+year_from: 2015
+open_access_only: false
+ontology_path: "configs/ontologies/thermoelectrics.yaml"
+seed: 42
+
+retrieval:
+  backend: local_json
+  mailto: "team@example.com"
+  min_cited_by: 0
+  rewrite_queries: true
+  multi_query: true
+  fetch_multiplier: 1
+  min_relevance: 0.05
+  prefer_oa: false
+  fetch_fulltext: true
+  fulltext_cache_dir: "data/fulltext"
+
+fulltext:
+  download_oa: false
+  pdf_cache_dir: "data/fulltext/pdfs"
+  parse_cache_dir: "data/fulltext/parsed"
+  chunk_cache_dir: "data/fulltext/chunks"
+  parsers:
+    primary: none
+    secondary: none
+  index:
+    backend: file
+
+evidence_retrieval:
+  enabled: true
+  top_k: 5
+
+llm:
+  enabled: false
+  base_url: "https://api.openai.com/v1"
+  api_key: ""
+  model: "gpt-4o-mini"
+  temperature: 0.2
+  max_tokens: 4096
+  max_retries: 1
+
+quality:
+  require_evidence: true
+  min_quote_chars: 12
+  min_evidence_confidence: 0.3
+  require_next_step: true
+  require_falsification: true
+  drop_gaps_without_evidence: true
+  min_gap_actionability: 0.35
+  require_quote_substring: false
+  require_fulltext_gap_evidence: false
+  reject_evidence_without_provenance: false
+  allow_abstract_fallback: true
+
+pipeline:
+  extract: true
+  identify_gaps: true
+  review_gaps: true
+  build_known_table: true
+  check_consistency: true
+  write_report: true
+  audit_log: true
+
+route_a:
+  enabled: true
+  n_iterations: 4
+  population_size: 4
+  seed: 42
+  min_plausibility: 0.2
+  label_known_vs_new: true
+  external_validate: true
+  validate_top_k: 5
+  materials_db: offline
+
+materials_db:
+  provider: offline
+  mp_api_key: "${MP_API_KEY:}"
+  cache_path: "data/materials_db_cache.json"
+
+output_dir: "outputs/demo"
+cache_dir: "data/cache"

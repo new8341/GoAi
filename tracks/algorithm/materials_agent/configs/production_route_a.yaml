@@ -1,0 +1,107 @@
+topic: "SnSe lattice thermal conductivity vacancy engineering"
+subfield: "thermoelectrics"
+max_papers: 10
+year_from: 2018
+open_access_only: true
+ontology_path: "configs/ontologies/thermoelectrics.yaml"
+seed: 42
+
+retrieval:
+  backend: openalex
+  mailto: "${OPENALEX_EMAIL:team@example.com}"
+  openalex_api_key: "${OPENALEX_API_KEY:}"
+  rewrite_queries: true
+  multi_query: true
+  fetch_multiplier: 3
+  min_relevance: 0.12
+  prefer_oa: true
+  fetch_fulltext: true
+
+fulltext:
+  download_oa: true
+  max_pdf_mb: 25
+  allow_text_cache: false
+  pdf_cache_dir: "data/fulltext/pdfs"
+  parse_cache_dir: "data/fulltext/parsed"
+  chunk_cache_dir: "data/fulltext/chunks"
+  unpaywall:
+    enabled: true
+    email: "${UNPAYWALL_EMAIL:}"
+  parsers:
+    primary: mineru
+    secondary: grobid
+    mineru_mode: cli
+    mineru_cmd: "mineru -b pipeline"
+    mineru_api_url: "${MINERU_API_URL:}"
+    grobid_url: "${GROBID_BASE_URL:http://localhost:8070}"
+    grobid_timeout_s: 120
+  chunking:
+    strategy: section
+    max_chars: 1200
+    overlap_chars: 150
+    respect_sections: true
+  index:
+    backend: qdrant
+    qdrant_url: "${QDRANT_URL:http://localhost:6333}"
+    qdrant_api_key: "${QDRANT_API_KEY:}"
+    collection: materials_evidence
+    vector_size: 64
+
+evidence_retrieval:
+  enabled: true
+  top_k: 5
+  min_retrieval_score: 0.05
+  prefer_same_section: true
+
+llm:
+  enabled: true
+  provider: "${LLM_PROVIDER:openai}"
+  base_url: "${OPENAI_BASE_URL:https://api.openai.com/v1}"
+  api_key: "${OPENAI_API_KEY:}"
+  model: "${OPENAI_MODEL:gpt-4o-mini}"
+  cursor_api_key: "${CURSOR_API_KEY:}"
+  cursor_model: "${CURSOR_MODEL:composer-2.5}"
+  cursor_workspace: "${CURSOR_WORKSPACE:.}"
+
+quality:
+  require_evidence: true
+  min_quote_chars: 24
+  min_evidence_confidence: 0.3
+  require_next_step: true
+  require_falsification: true
+  drop_gaps_without_evidence: true
+  min_gap_actionability: 0.35
+  require_quote_substring: true
+  require_fulltext_gap_evidence: true
+  min_fulltext_paper_ratio: 0.5
+  reject_evidence_without_provenance: true
+  allow_abstract_fallback: false
+
+pipeline:
+  extract: true
+  identify_gaps: true
+  review_gaps: true
+  build_known_table: true
+  check_consistency: true
+  write_report: true
+  audit_log: true
+
+route_a:
+  enabled: true
+  n_iterations: 4
+  population_size: 6
+  seed: 42
+  min_plausibility: 0.25
+  label_known_vs_new: true
+  external_validate: true
+  validate_top_k: 5
+  materials_db: materials_project
+
+materials_db:
+  provider: materials_project
+  mp_api_key: "${MP_API_KEY:}"
+  allow_offline_fallback: false
+  cache_path: "data/materials_db_cache.json"
+
+output_dir: "outputs/production_route_a"
+cache_dir: "data/cache"

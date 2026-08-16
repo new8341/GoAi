@@ -1,0 +1,49 @@
+name: thermoelectrics
+description: Domain priors for thermoelectric literature agent
+properties:
+  - ZT
+  - figure of merit
+  - Seebeck
+  - thermal conductivity
+  - lattice thermal conductivity
+  - electrical conductivity
+  - power factor
+  - mobility
+  - band gap
+methods:
+  - DFT
+  - molecular dynamics
+  - machine learning
+  - spark plasma sintering
+  - XRD
+  - TEM
+materials_examples:
+  - SnSe
+  - PbTe
+  - Bi2Te3
+  - Mg3Sb2
+  - half-Heusler
+  - GeTe
+property_focus:
+  - vacancy
+  - vacancies
+  - lattice
+  - thermal
+  - conductivity
+  - phonon
+  - scattering
+  - defect
+  - kappa
+search_keywords:
+  - thermoelectric
+  - phonon scattering
+  - vacancy engineering
+  - resonant doping
+  - energy filtering
+common_pitfalls:
+  - claiming record ZT without batch reproducibility
+  - ignoring bipolar thermal conductivity at high T
+  - conflating total and lattice thermal conductivity
+falsification_hints:
+  - Compare predicted κ_L reduction against independent measurement protocol
+  - Check phase stability / formation energy in Materials Project before claiming new composition

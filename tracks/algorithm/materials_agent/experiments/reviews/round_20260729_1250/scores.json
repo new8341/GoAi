@@ -1,0 +1,176 @@
+{
+  "created_utc": "20260729_1250",
+  "seed": 42,
+  "n_requested": 5,
+  "n_sampled": 5,
+  "use_llm": false,
+  "counts": {
+    "keep": 5,
+    "revise": 0,
+    "reject": 0
+  },
+  "items": [
+    {
+      "gap_id": "gap-method-balance",
+      "gap_type": "method_gap",
+      "title": "Computation/ML conclusions lack experimental or process closure",
+      "reviewer_A": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "reviewer_B": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_scores": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_total": 10,
+      "decision": "keep",
+      "disagreements": [],
+      "mode": "rules",
+      "A_notes": "",
+      "B_notes": ""
+    },
+    {
+      "gap_id": "gap-conflict-LOCAL-004",
+      "gap_type": "contradiction",
+      "title": "Unresolved conflicting claims in `LOCAL-004`",
+      "reviewer_A": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "reviewer_B": {
+        "evidence_fit": 1,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_scores": {
+        "evidence_fit": 1,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_total": 9,
+      "decision": "keep",
+      "disagreements": [
+        "evidence_fit: A=2 B=1 -> 1"
+      ],
+      "mode": "rules",
+      "A_notes": "",
+      "B_notes": ""
+    },
+    {
+      "gap_id": "gap-missing-link-topic",
+      "gap_type": "missing_link",
+      "title": "Missing property coverage for topic material SnSe",
+      "reviewer_A": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "reviewer_B": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_scores": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_total": 10,
+      "decision": "keep",
+      "disagreements": [],
+      "mode": "rules",
+      "A_notes": "",
+      "B_notes": ""
+    },
+    {
+      "gap_id": "gap-limitations",
+      "gap_type": "underexplored",
+      "title": "Open limitations repeatedly signaled in screened abstracts",
+      "reviewer_A": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "reviewer_B": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_scores": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_total": 10,
+      "decision": "keep",
+      "disagreements": [],
+      "mode": "rules",
+      "A_notes": "",
+      "B_notes": ""
+    },
+    {
+      "gap_id": "gap-debate-LOCAL-001",
+      "gap_type": "underexplored",
+      "title": "Mechanism still debated in `LOCAL-001`",
+      "reviewer_A": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "reviewer_B": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_scores": {
+        "evidence_fit": 2,
+        "falsifiability": 2,
+        "type_purity": 2,
+        "novelty_honesty": 2,
+        "non_overclaim": 2
+      },
+      "final_total": 10,
+      "decision": "keep",
+      "disagreements": [],
+      "mode": "rules",
+      "A_notes": "",
+      "B_notes": ""
+    }
+  ]
+}

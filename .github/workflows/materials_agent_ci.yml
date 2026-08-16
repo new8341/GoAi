@@ -1,0 +1,28 @@
+name: materials_agent_ci
+
+on:
+  push:
+    paths:
+      - "tracks/algorithm/materials_agent/**"
+  pull_request:
+    paths:
+      - "tracks/algorithm/materials_agent/**"
+  workflow_dispatch:
+
+jobs:
+  pytest-demo:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tracks/algorithm/materials_agent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -r requirements.txt pytest
+      - name: Unit tests
+        run: python -m pytest -q --tb=line
+      - name: Demo checklist
+        run: python scripts/verify_checklist.py

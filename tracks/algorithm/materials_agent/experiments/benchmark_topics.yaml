@@ -1,0 +1,37 @@
+# Fixed topic set for quality iteration (readme_agent.md §6)
+topics:
+  - id: snse_kl
+    topic: "SnSe lattice thermal conductivity vacancy engineering"
+    subfield: "thermoelectrics"
+    expect_gap_types: ["missing_link", "underexplored", "method_gap"]
+  - id: pbte_pf
+    topic: "PbTe power factor resonant doping nanocomposites"
+    subfield: "thermoelectrics"
+    expect_gap_types: ["missing_link", "contradiction"]
+  - id: bi2te3_gb
+    topic: "Bi2Te3 grain boundary scattering Seebeck mobility contradiction"
+    subfield: "thermoelectrics"
+    expect_gap_types: ["contradiction"]
+  - id: hh_ml
+    topic: "half-Heusler thermoelectric machine learning screening synthesis constraints"
+    subfield: "thermoelectrics"
+    expect_gap_types: ["method_gap", "underexplored"]
+  - id: mg3sb2
+    topic: "Mg3Sb2 n-type thermoelectric dopant solubility air sensitivity"
+    subfield: "thermoelectrics"
+    expect_gap_types: ["underexplored", "method_gap"]
+
+ablations:
+  - name: full
+    overrides: {}
+  - name: no_rewrite
+    overrides:
+      retrieval.rewrite_queries: false
+      retrieval.multi_query: false
+  - name: no_review
+    overrides:
+      pipeline.review_gaps: false
+  - name: no_evidence_gate
+    overrides:
+      quality.require_evidence: false
+      quality.drop_gaps_without_evidence: false

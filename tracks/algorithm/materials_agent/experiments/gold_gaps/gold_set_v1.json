@@ -1,0 +1,208 @@
+{
+  "version": "v1",
+  "frozen_at": "2026-07-29",
+  "topic": "SnSe lattice thermal conductivity vacancy engineering",
+  "annotators": ["A", "B", "consensus"],
+  "items": [
+    {
+      "match_key": "gap-method-balance",
+      "is_true_gap": true,
+      "correct_type": "method_gap",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "ML/DFT without process closure — true method gap."
+    },
+    {
+      "match_key": "gap-conflict-LOCAL-004",
+      "is_true_gap": true,
+      "correct_type": "contradiction",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Explicit conflicting claims in Bi2Te3 GB scattering."
+    },
+    {
+      "match_key": "gap-missing-link-topic",
+      "is_true_gap": true,
+      "correct_type": "missing_link",
+      "evidence_ok": true,
+      "novelty_tier": "low",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Corpus-local missing link; novelty low vs broader literature."
+    },
+    {
+      "match_key": "gap-limitations",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Clustered limitation cues — underexplored, not contradiction."
+    },
+    {
+      "match_key": "gap-debate-LOCAL-001",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Mechanism debated in SnSe vacancy vs anharmonicity."
+    },
+    {
+      "match_key": "SnSe–ZT known pair as discovery",
+      "is_true_gap": false,
+      "correct_type": "underexplored",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative example: SnSe–ZT is Known, not a gap."
+    },
+    {
+      "match_key": "cross-material temporal contradiction",
+      "is_true_gap": false,
+      "correct_type": "contradiction",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "A",
+      "notes": "Negative: hard-linking unrelated materials as contradiction."
+    },
+    {
+      "match_key": "PbTe energy filtering stability",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "B",
+      "notes": "Long-term stability of PbTe nanocomposites unclear."
+    },
+    {
+      "match_key": "half-Heusler phase stability filter",
+      "is_true_gap": true,
+      "correct_type": "method_gap",
+      "evidence_ok": true,
+      "novelty_tier": "high",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Need MP/OQMD hull filter before claiming ML hits."
+    },
+    {
+      "match_key": "Mg3Sb2 dopant solubility",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "A",
+      "notes": "Dopant solubility windows not fully mapped."
+    },
+    {
+      "match_key": "Bi2Te3 shared protocol",
+      "is_true_gap": true,
+      "correct_type": "contradiction",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "B",
+      "notes": "Needs common measurement protocol — keep as contradiction."
+    },
+    {
+      "match_key": "vacancy vs anharmonicity discriminant",
+      "is_true_gap": true,
+      "correct_type": "missing_link",
+      "evidence_ok": true,
+      "novelty_tier": "high",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Missing discriminating experiment linking vacancy metrology to kappa."
+    },
+    {
+      "match_key": "SPS process window Mg3Sb2",
+      "is_true_gap": true,
+      "correct_type": "method_gap",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "A",
+      "notes": "Process–property coupling under-specified."
+    },
+    {
+      "match_key": "resonant doping overclaim",
+      "is_true_gap": false,
+      "correct_type": "underexplored",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "B",
+      "notes": "Negative: DFT support ≠ confirmed experimental discovery."
+    },
+    {
+      "match_key": "OA fulltext vs abstract evidence",
+      "is_true_gap": true,
+      "correct_type": "method_gap",
+      "evidence_ok": true,
+      "novelty_tier": "high",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Meta-gap: abstract-only evidence underpowers claims."
+    },
+    {
+      "match_key": "SnSe batch reproducibility",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "A",
+      "notes": "Reproducing high ZT across batches remains open."
+    },
+    {
+      "match_key": "grain-boundary mobility collapse",
+      "is_true_gap": true,
+      "correct_type": "contradiction",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "B",
+      "notes": "Opposing mobility claims need bilateral evidence."
+    },
+    {
+      "match_key": "air sensitivity handling",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "low",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "Process limitation; novelty low but actionable."
+    },
+    {
+      "match_key": "claim confirmed discovery from SPR seed",
+      "is_true_gap": false,
+      "correct_type": "underexplored",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative: Route A seed is hypothesis, not discovery."
+    },
+    {
+      "match_key": "hull filter before experiment",
+      "is_true_gap": true,
+      "correct_type": "method_gap",
+      "evidence_ok": true,
+      "novelty_tier": "high",
+      "actionability_ok": true,
+      "annotator": "consensus",
+      "notes": "External MP/OQMD validation as required next step."
+    }
+  ]
+}

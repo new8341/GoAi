@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+.env.*
+!**/.env.example
+
+# Data & large artifacts (keep local; do not push competition-restricted data)
+**/data/raw/
+**/data/processed/
+**/data/fulltext/
+**/data/qdrant/
+**/data/models/
+**/data/scibase/
+tracks/algorithm/materials_agent/data/
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.npz
+*.parquet
+*.csv.gz
+prediction.csv
+*.traj
+*.xtc
+*.dcd
+
+# Experiments / logs / run outputs
+**/experiments/**/runs/
+**/logs/**
+!**/logs/.gitkeep
+mlruns/
+wandb/
+outputs/
+**/outputs/
+*.log
+
+# Submission zip binaries (regenerate locally)
+submissions/packages/*.zip
+submissions/packages/_stage_*/
+document/_pdf*_extract.txt
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# SpecStory / local tooling
+.specstory/
+.cursor/
