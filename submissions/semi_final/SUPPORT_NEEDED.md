@@ -1,6 +1,6 @@
 ﻿# 需要你支持的事项
 
-> Docker / hybrid 金标、公开仓库、L2 签字、**coverage≥0.5**、**官方 MCP 接入**均已完成。仅剩可选许可证确认。
+> Docker / hybrid 金标、公开仓库、L2 签字、coverage≥0.5、官方 MCP（含本机 Connected + Live 调用）均已完成。仅剩可选许可证确认。
 
 ---
 
@@ -32,7 +32,7 @@
 - Skill：`tracks/algorithm/materials_agent/skills/sciverse-mcp/SKILL.md`
 - 探针：`submissions/semi_final/sciverse_mcp_probe.md`（npx resolve OK + REST 回退 OK）
 - 说明：`tracks/algorithm/materials_agent/docs/SCIVERSE_MCP.md`
-- **你本地**：把 `mcp.json.example` 合入 Cursor MCP，并保证环境有 `SCIVERSE_API_TOKEN`（勿提交）
+- **本机 Cursor**：Settings → MCP → `sciverse` = Local **Connected**（2026-08-16）；Live `semantic_search` 已跑通（见 `sciverse_mcp_probe.md`）
 
 ## 5. coverage 扩标 — 已完成
 
