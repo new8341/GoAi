@@ -48,5 +48,6 @@ Query → Sciverse + Sci-Base 检索 → OA/解析全文（GROBID；Sci-Base con
 
 - 全量 Sci-Base 为 TB 级：使用材料子集缓存，非整库下载。  
 - 完整 hybrid 重解析依赖本机 Docker/GROBID（见 `SUPPORT_NEEDED.md`）。  
-- 金标准 coverage≈0.30：平行指标，不以虚高 accuracy 主宣传。  
+- 金标准 **coverage=0.667**（`gold_set_v2_hybrid`）：可并列汇报 type_accuracy=1.0。  
+- 官方 MCP：`sciverse-mcp-server` 已接入配置/探针；批量跑次仍以 REST audit 为主。  
 - 决赛：海报/路演/一页纸见 `one_pager.md`。

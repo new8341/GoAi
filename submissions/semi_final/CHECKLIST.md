@@ -24,8 +24,8 @@
 - [x] MP + OQMD 双库外验
 - [x] MinerU/GROBID 披露口径
 - [x] L2 真人抽检归档
-- [ ] coverage≥0.5（可选扩标；当前≈0.30 不作主宣传）
-- [ ] Sciverse 官方 MCP（可选；REST 已合规）
+- [x] coverage≥0.5（`gold_set_v2_hybrid` → **0.667**；type_accuracy **1.0**）
+- [x] Sciverse 官方 MCP（`sciverse-mcp-server` + `mcp.json.example` + 探针报告）
 
 ## 重新打包
 

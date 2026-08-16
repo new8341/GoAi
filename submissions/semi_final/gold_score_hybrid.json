@@ -1,0 +1,101 @@
+{
+  "n_gold": 12,
+  "n_matched": 8,
+  "coverage": 0.667,
+  "type_accuracy": 1.0,
+  "evidence_agreement": 1.0,
+  "actionability_agreement": 1.0,
+  "novelty_mae": 0.035,
+  "true_gap_matches": 8,
+  "negative_leaks": 0,
+  "details": [
+    {
+      "match_key": "gap-open-paper101002aenm201803242-0",
+      "auto_id": "gap-open-paper101002aenm201803242-0",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "gap-open-paper101002advs202105958-2",
+      "auto_id": "gap-open-paper101002advs202105958-2",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "gap-open-paper101002advs202105958-1",
+      "auto_id": "gap-open-paper101002advs202105958-1",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "gap-temporal-SnSe",
+      "auto_id": "gap-temporal-SnSe",
+      "type_ok": true,
+      "auto_type": "contradiction",
+      "gold_type": "contradiction",
+      "auto_novelty": 0.5,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "SnSe vacancy level difficult",
+      "auto_id": "gap-open-paper101002aenm201803242-0",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "solubility limit SnSe1-xTex substitution",
+      "auto_id": "gap-open-paper101002advs202105958-2",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "Degenerated Hole Doping Ultra-Low Lattice",
+      "auto_id": "gap-open-paper101002advs202105958-1",
+      "type_ok": true,
+      "auto_type": "underexplored",
+      "gold_type": "underexplored",
+      "auto_novelty": 0.58,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "temporal tension SnSe 2019",
+      "auto_id": "gap-temporal-SnSe",
+      "type_ok": true,
+      "auto_type": "contradiction",
+      "gold_type": "contradiction",
+      "auto_novelty": 0.5,
+      "gold_tier": "mid"
+    },
+    {
+      "match_key": "SnSe ZT as novel discovery",
+      "status": "absent_ok_negative"
+    },
+    {
+      "match_key": "unrelated solar flare astronomy gap",
+      "status": "absent_ok_negative"
+    },
+    {
+      "match_key": "fabricate citation without source",
+      "status": "absent_ok_negative"
+    },
+    {
+      "match_key": "PbTe energy filtering as sole astronomy-unrelated gap",
+      "status": "absent_ok_negative"
+    }
+  ]
+}

@@ -36,4 +36,4 @@
 
 ## 5. 金标准口径
 
-见 [`gold_coverage.md`](gold_coverage.md)（coverage≈0.30 时不主推 type_accuracy）。
+见 [`gold_coverage.md`](gold_coverage.md)：v2 hybrid **coverage=0.667**，type_accuracy **1.0**（负例无泄漏）。

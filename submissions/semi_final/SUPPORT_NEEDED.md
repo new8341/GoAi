@@ -1,6 +1,6 @@
 ﻿# 需要你支持的事项
 
-> Docker / hybrid 金标、公开仓库、**L2 签字**均已完成。可选 MCP / 许可证确认见文末。
+> Docker / hybrid 金标、公开仓库、L2 签字、**coverage≥0.5**、**官方 MCP 接入**均已完成。仅剩可选许可证确认。
 
 ---
 
@@ -25,10 +25,20 @@
 
 ---
 
-## 4.（可选）Sciverse 官方 MCP
+## 4. Sciverse 官方 MCP — 已完成
 
-有官方 MCP/Skill 文档再发；无则 REST+audit 已可披露。
+- 包：`npx -y sciverse-mcp-server`（OpenDataLab 官方）
+- 配置样例：仓库根 `mcp.json.example`
+- Skill：`tracks/algorithm/materials_agent/skills/sciverse-mcp/SKILL.md`
+- 探针：`submissions/semi_final/sciverse_mcp_probe.md`（npx resolve OK + REST 回退 OK）
+- 说明：`tracks/algorithm/materials_agent/docs/SCIVERSE_MCP.md`
+- **你本地**：把 `mcp.json.example` 合入 Cursor MCP，并保证环境有 `SCIVERSE_API_TOKEN`（勿提交）
 
-## 5.（可选）许可证
+## 5. coverage 扩标 — 已完成
+
+- `gold_set_v2_hybrid.json` vs hybrid gaps → **coverage 0.667** / type_accuracy **1.0**
+- 见 `gold_coverage.md`、`gold_score_hybrid.md`
+
+## 6.（可选）许可证
 
 默认 `LICENSE` = Apache-2.0。

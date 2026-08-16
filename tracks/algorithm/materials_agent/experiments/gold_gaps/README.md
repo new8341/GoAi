@@ -25,3 +25,11 @@
 ## 本仓库起步集
 
 `gold_set_v1.json` 含 20 条：以 demo 离线语料可复现 Gap 为主，并补充负例（非 Gap / 类型错）用于校准。
+
+## 复赛主集（v2 hybrid）
+
+`gold_set_v2_hybrid.json`：对齐 `production_sciverse_scibase` + L2 签字 Gap，目标 **coverage≥0.5**。
+
+```powershell
+py -3 scripts/score_against_gold.py --gaps outputs/production_sciverse_scibase/gaps.json --gold experiments/gold_gaps/gold_set_v2_hybrid.json --out outputs/production_sciverse_scibase/gold_score.json
+```

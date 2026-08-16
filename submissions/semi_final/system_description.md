@@ -35,7 +35,7 @@ configs/*.yaml
 |----------|--------|
 | Sciverse | `backend: sciverse` / hybrid `sciverse_scibase`；审计禁止静默假后端 |
 | MinerU / GROBID | 生产主路径 **GROBID 0.8.0**；Sci-Base 行为 MinerU 深解析产物 |
-| Sciverse MCP/Skill | **鼓励项**：当前以 REST/API 调用 + `audit.json` 证据链 |
+| Sciverse MCP/Skill | **已接官方** `sciverse-mcp-server`（`mcp.json.example`）；批量金标仍走 REST + `audit.json` |
 | Sci-Base (HF) | **已接入**：`opendatalab/Sci-Base` → `data/scibase/materials_cache.jsonl`；见 `scripts/build_scibase_cache.py` |
 | Materials Project | Route A 外验（`MP_API_KEY`） |
 

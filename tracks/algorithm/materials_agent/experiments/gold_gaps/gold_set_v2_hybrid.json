@@ -1,0 +1,132 @@
+{
+  "version": "v2_hybrid",
+  "frozen_at": "2026-08-16",
+  "topic": "SnSe lattice thermal conductivity vacancy engineering",
+  "run": "production_sciverse_scibase",
+  "annotators": [
+    "L2-Lee",
+    "consensus"
+  ],
+  "items": [
+    {
+      "match_key": "gap-open-paper101002aenm201803242-0",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Promoted from L2-signed hybrid run 2026-08-16: Unresolved: For p-type SnSe, however, to achieve an optimal Sn vacancy level has historically been difficult."
+    },
+    {
+      "match_key": "gap-open-paper101002advs202105958-2",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Promoted from L2-signed hybrid run 2026-08-16: Unresolved: The difficulty comes from the low solubility limit of x in Sn(Se 1-x Te x ); [28, 29] as found in the…"
+    },
+    {
+      "match_key": "gap-open-paper101002advs202105958-1",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Promoted from L2-signed hybrid run 2026-08-16: Unresolved: Degenerated Hole Doping and Ultra-Low Lattice Thermal Conductivity in Polycrystalline SnSe by…"
+    },
+    {
+      "match_key": "gap-temporal-SnSe",
+      "is_true_gap": true,
+      "correct_type": "contradiction",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Promoted from L2-signed hybrid run 2026-08-16: Candidate temporal tension for SnSe across 2019–2022 (corpus-scoped)"
+    },
+    {
+      "match_key": "SnSe vacancy level difficult",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Keyword alias for gap-open-paper101002aenm201803242-0"
+    },
+    {
+      "match_key": "solubility limit SnSe1-xTex substitution",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Keyword alias for gap-open-paper101002advs202105958-2"
+    },
+    {
+      "match_key": "Degenerated Hole Doping Ultra-Low Lattice",
+      "is_true_gap": true,
+      "correct_type": "underexplored",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Keyword alias for gap-open-paper101002advs202105958-1"
+    },
+    {
+      "match_key": "temporal tension SnSe 2019",
+      "is_true_gap": true,
+      "correct_type": "contradiction",
+      "evidence_ok": true,
+      "novelty_tier": "mid",
+      "actionability_ok": true,
+      "annotator": "L2-Lee",
+      "notes": "Keyword alias for gap-temporal-SnSe"
+    },
+    {
+      "match_key": "SnSe ZT as novel discovery",
+      "is_true_gap": false,
+      "correct_type": "underexplored",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative: known pair"
+    },
+    {
+      "match_key": "unrelated solar flare astronomy gap",
+      "is_true_gap": false,
+      "correct_type": "missing_link",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative: off-topic"
+    },
+    {
+      "match_key": "fabricate citation without source",
+      "is_true_gap": false,
+      "correct_type": "method_gap",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative: fabricated claim"
+    },
+    {
+      "match_key": "PbTe energy filtering as sole astronomy-unrelated gap",
+      "is_true_gap": false,
+      "correct_type": "underexplored",
+      "evidence_ok": false,
+      "novelty_tier": "low",
+      "actionability_ok": false,
+      "annotator": "consensus",
+      "notes": "Negative: sibling TE phrasing must not fuzzy-match SnSe gaps"
+    }
+  ]
+}
