@@ -17,7 +17,11 @@ venv/
 **/data/qdrant/
 **/data/models/
 **/data/scibase/
-tracks/algorithm/materials_agent/data/
+# Ignore materials_agent data dumps, but keep the offline demo fixture tracked for CI.
+tracks/algorithm/materials_agent/data/**
+!tracks/algorithm/materials_agent/data/
+!tracks/algorithm/materials_agent/data/.gitkeep
+!tracks/algorithm/materials_agent/data/local_papers.json
 *.h5
 *.hdf5
 *.pt
