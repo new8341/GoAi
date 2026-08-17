@@ -322,7 +322,12 @@ class LocalJsonRetriever:
         audit: list[AuditEvent],
         ontology: dict | None = None,
     ) -> list[Paper]:
-        path = Path(cfg.cache_dir).parent / "local_papers.json"
+        # Resolve relative to project root (…/materials_agent/), not the inner package dir.
+        root = Path(__file__).resolve().parents[2]
+        cache = Path(cfg.cache_dir)
+        if not cache.is_absolute():
+            cache = (root / cache).resolve()
+        path = cache.parent / "local_papers.json"
         if not path.exists():
             raise FileNotFoundError(f"Local paper file not found: {path}")
         data = json.loads(path.read_text(encoding="utf-8"))

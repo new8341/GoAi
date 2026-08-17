@@ -9,22 +9,24 @@ on:
     paths:
       - "tracks/algorithm/materials_agent/**"
       - ".github/workflows/materials-agent.yml"
-
-defaults:
-  run:
-    working-directory: tracks/algorithm/materials_agent
+  workflow_dispatch:
 
 jobs:
-  test:
+  pytest-demo:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tracks/algorithm/materials_agent
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
+      - name: Prove demo fixture exists
+        run: test -f data/local_papers.json && python -c "import json; from pathlib import Path; print(len(json.loads(Path('data/local_papers.json').read_text())))"
       - name: Unit tests
-        run: pytest tests -q --tb=short
+        run: python -m pytest tests -q --tb=short
       - name: Demo checklist
         run: python scripts/verify_checklist.py
